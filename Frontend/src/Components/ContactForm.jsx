@@ -25,7 +25,7 @@ const ContactForm = ({ onContactAdded }) => {
     } else if (digitsOnly.length < 10) {
       tempErrors.phone = "Phone number is too short (min 10 digits)";
     } else if (digitsOnly.length > 10) {
-      tempErrors.phone = "Phone number is too long (max 15 digits)";
+      tempErrors.phone = "Phone number is too long (max 10 digits)";
     }
     if (!formData.phone) tempErrors.phone = "Phone is required";
 
