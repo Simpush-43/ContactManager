@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ContactForm from "./Components/ContactForm";
 import ContactList from "./Components/ContactList";
-import { getContacts, deleteContact } from "./services/api";
+import { getContacts, deleteContact } from "./Services/api";
 import { toast, ToastContainer } from "react-toastify";
 import SearchBar from "./Components/SearchBar";
 
