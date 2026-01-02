@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createContact } from "../services/api";
+import { createContact } from "../Services/api";
 import { toast } from "react-toastify";
 const ContactForm = ({ onContactAdded }) => {
   const initialFormState = { name: "", email: "", phone: "", message: "" };
