@@ -24,7 +24,7 @@ const ContactForm = ({ onContactAdded }) => {
       tempErrors.phone = "Phone contains invalid characters (letters/symbols)";
     } else if (digitsOnly.length < 10) {
       tempErrors.phone = "Phone number is too short (min 10 digits)";
-    } else if (digitsOnly.length > 15) {
+    } else if (digitsOnly.length > 10) {
       tempErrors.phone = "Phone number is too long (max 15 digits)";
     }
     if (!formData.phone) tempErrors.phone = "Phone is required";
@@ -90,6 +90,7 @@ const ContactForm = ({ onContactAdded }) => {
           value={formData.phone}
           onChange={handleChange}
           error={errors.phone}
+          type='tel'
         />
 
         <div>
