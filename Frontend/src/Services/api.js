@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api/contacts';
+const API_URL = 'https://contactmanager-7br9.onrender.com/api/contacts';
 
 export const getContacts = async () => {
   const res = await fetch(API_URL);
