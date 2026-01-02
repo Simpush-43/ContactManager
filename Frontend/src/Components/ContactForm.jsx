@@ -15,6 +15,18 @@ const ContactForm = ({ onContactAdded }) => {
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       tempErrors.email = "Email is invalid";
     }
+    const phoneValue = formData.phone.trim();
+    const validCharPattern = /^\+?[0-9\s\-\(\)]+$/;
+    const digitsOnly = phoneValue.replace(/\D/g, "");
+    if (!phoneValue) {
+      tempErrors.phone = "Phone is required";
+    } else if (!validCharPattern.test(phoneValue)) {
+      tempErrors.phone = "Phone contains invalid characters (letters/symbols)";
+    } else if (digitsOnly.length < 10) {
+      tempErrors.phone = "Phone number is too short (min 10 digits)";
+    } else if (digitsOnly.length > 15) {
+      tempErrors.phone = "Phone number is too long (max 15 digits)";
+    }
     if (!formData.phone) tempErrors.phone = "Phone is required";
 
     setErrors(tempErrors);
