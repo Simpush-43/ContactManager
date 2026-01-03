@@ -28,10 +28,21 @@ const ContactList = ({ contacts, onDelete, loading }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 max-h-[80vh] overflow-y-auto p-1">
-      {contacts.map((contact) => (
-        <ContactCard key={contact._id} contact={contact} onDelete={onDelete} />
-      ))}
+<div className="flex flex-col gap-3 custom-scrollbar overflow-y-auto max-h-[80vh] p-1">
+      <AnimatePresence>
+        {contacts.map((contact) => (
+          <motion.div
+            key={contact._id}
+            initial={{ opacity: 0, y: 20 }}  
+            animate={{ opacity: 1, y: 0 }}     
+            exit={{ opacity: 0, x: -100 }}     
+            transition={{ duration: 0.2 }}
+            layout // Magic prop: Makes other items slide up smoothly when one is removed
+          >
+            <ContactCard contact={contact} onDelete={onDelete} />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 };
