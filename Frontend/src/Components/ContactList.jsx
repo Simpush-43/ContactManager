@@ -1,6 +1,6 @@
 import React from "react";
 import ContactCard from "./ContactCard";
-
+import {AnimatePresence,motion} from 'framer-motion'
 const ContactList = ({ contacts, onDelete, loading }) => {
   const SkeletonCard = () => (
     <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 animate-pulse">
